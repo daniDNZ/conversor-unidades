@@ -1,0 +1,74 @@
+@use 'base';
+
+// MIXINS
+@mixin flex ($direction, $wrap, $justify, $align) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid ($nColumns) {
+  display: grid;
+  grid-template-columns: repeat($nColumns, 1fr);
+}
+
+@mixin largeScreen() {
+  @media screen and (min-width: 720px) {
+    @content;
+  }
+}
+
+// LAYOUT
+.app {
+  min-height: 100vh;
+  @include flex(column, nowrap, flex-start, center);
+}
+
+.header {
+  width: 100%;
+  box-shadow: 0 0 3px 2px base.$color-gray;
+
+  &__container {
+    max-width: 720px;
+    
+    margin: 0 auto; 
+    padding: .5rem 1rem;
+
+    @include flex(row, nowrap, flex-start, center);
+    gap: 1rem;
+  } 
+
+  & .icon-container {
+    align-self: flex-end;
+  }
+
+  & .icon {
+    width: 1.2rem;
+  }
+
+  &__a {
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+
+}
+
+.main {
+  width: 100%;
+  max-width: 720px;
+  padding: 1.4rem;
+}
+
+.footer {
+  width: 100%;
+  background-color: base.$color-primary;
+  color: base.$color-light;
+  font-size: .8em;
+
+  padding: 1rem;
+  margin-top: auto;
+
+  @include flex(row, nowrap, center, center);
+  gap: 3rem;
+}

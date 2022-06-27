@@ -1,0 +1,212 @@
+/*
+    RESET
+*/
+
+// Colors
+$colors: (
+    '1'     : rgb(34, 0, 43),
+    '2'     : rgb(84, 84, 84),
+    '3'     : rgb(220, 220, 220),
+    '4'     : white
+);
+
+// Fonts
+$fonts: (
+    'primary' : (Verdana, sans-serif)
+);
+
+// Variables
+$color-primary          : map-get($colors, '1');
+$color-secondary        : map-get($colors, '2');
+$color-gray             : map-get($colors, '3');
+$color-light            : map-get($colors, '4');
+
+
+// Fonts
+$font-primary: map-get($fonts, 'primary');
+
+
+// Dark mode
+
+$darkMode: true; // Enable dark mode detection
+
+@mixin darkMode {
+    @if($darkMode) {
+        @media (prefers-color-scheme: dark) {
+            @content;
+        }
+    }
+}
+
+// High Contrast
+@media (prefers-contrast: high) {
+    :root {
+    $color-font: black;
+    $color-background: white;
+    }
+}
+
+// Reduce Motions
+@media (prefers-reduced-motion: reduce) {
+
+    // Better complete selector
+    * {
+        animation: none;
+        transition: none;
+    }
+}
+
+// Margins and paddings
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+// Img problems
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /* optional */
+    object-fit: cover;
+    /* optional */
+    object-position: center center;
+}
+
+// Reset <a>
+a {
+    display: block;
+}
+
+// ... Not in <p>
+p a {
+    display: inline;
+}
+
+// Remove <li> dots
+li {
+    list-style-type: none;
+}
+
+// Soft anchors
+html {
+    scroll-behavior: smooth;
+}
+
+// Deactivate default styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+// Pseudo
+blockquote::before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+// Select text
+::selection {
+    background-color: $color-primary;
+    color: $color-light;
+    
+    @include darkMode(){
+        background-color: $color-light;
+        color: $color-primary;
+
+    }
+}
+
+// Typography and forms
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+    /* optional */
+    // appearance: none;
+}
+
+// Input Focus
+textarea:focus,
+input:focus,
+input[type]:focus {
+    outline: 0 none;
+}
+
+// Reset tables
+table,
+tr,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// SVG problems
+svg {
+    // width: 100%;
+    display: block;
+    fill: currentColor;
+    pointer-events: none; // To fix the click event
+}
+
+// General Typo
+body {
+    min-height: 100vh;
+    font-size: 1rem;
+    font-family: $font-primary;
+    color: $color-primary;
+    background-color: $color-light;
+    /* optional */
+    line-height: 1.4em;
+    /* optional */
+    hyphens: auto;
+    /* optional */
+    font-smooth: always;
+    /* optional */
+    -webkit-font-smoothing: antialiased;
+    /* optional */
+    -moz-osx-font-smoothing: grayscale;
+
+    @include darkMode(){
+        color: $color-light;
+        background-color: $color-primary;
+    }
+}
+
+
+

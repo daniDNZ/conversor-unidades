@@ -1,0 +1,77 @@
+@use 'base';
+@use 'layout';
+
+.card {
+  background-color: base.$color-primary;
+  border-radius: 20px;
+  color: base.$color-light;
+  box-shadow: 0 0 5px 4px base.$color-gray;
+
+  padding: 1.4rem;
+
+  @include layout.flex(column, nowrap, center, flex-start);
+  gap: 1rem;
+
+  @include layout.largeScreen(){
+    padding: 1.6rem 2rem;
+  }
+
+  &__title {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+
+  &__main {
+    @include layout.flex(column, nowrap, flex-start, flex-start);
+    gap: 1rem;
+    
+    @include layout.largeScreen(){
+      @include layout.flex(row, nowrap, flex-start, flex-start);
+      gap: 3rem;
+    }
+  }
+
+  &__flex-item {
+    @include layout.flex(row, nowrap, flex-start, center); 
+    gap: 1rem;
+  }
+
+  &__input {
+    width: 15rem;
+    border-bottom: 2px solid;
+
+    @media screen and (max-width: 389px) {
+      width: 10rem;
+    }
+
+    &--num {
+      font-size: .8em;
+      text-align: end;
+      line-height: inherit;
+    }
+  }
+
+  &__icon {
+    width: 1rem;
+  }
+}
+
+.result {
+  width: 100%;
+  font-weight: 700;
+
+  @include layout.flex(row, nowrap, flex-start, center);
+  gap: 1rem;
+  &__flex-item {
+    width: 15rem;
+
+    @include layout.flex(row, nowrap, space-between, center);
+    
+    @media screen and (max-width: 389px) {
+      width: 10rem;
+    }
+    @include layout.largeScreen(){
+      width: 35rem;
+    }
+  }
+}

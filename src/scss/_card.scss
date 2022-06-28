@@ -3,52 +3,57 @@
 
 .card {
   background-color: base.$color-primary;
-  border-radius: 20px;
+  border-radius: 21px;
   color: base.$color-light;
-  box-shadow: 0 0 5px 4px base.$color-gray;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2);
 
-  padding: 1.4rem;
+  padding: 1.2rem;
 
   @include layout.flex(column, nowrap, center, flex-start);
   gap: 1rem;
 
-  @include layout.largeScreen(){
+  @include layout.largeScreen() {
     padding: 1.6rem 2rem;
   }
 
   &__title {
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 1.5em;
+    font-weight: 600;
   }
 
   &__main {
     @include layout.flex(column, nowrap, flex-start, flex-start);
     gap: 1rem;
-    
-    @include layout.largeScreen(){
+
+    @include layout.largeScreen() {
       @include layout.flex(row, nowrap, flex-start, flex-start);
       gap: 3rem;
     }
   }
 
   &__flex-item {
-    @include layout.flex(row, nowrap, flex-start, center); 
+    @include layout.flex(row, nowrap, flex-start, center);
     gap: 1rem;
   }
 
   &__input {
     width: 15rem;
+    font-size: .9rem;
     border-bottom: 2px solid;
 
-    @media screen and (max-width: 389px) {
+    @media screen and (max-width: 340px) {
       width: 10rem;
     }
 
     &--num {
-      font-size: .8em;
+      font-size: .9em;
       text-align: end;
       line-height: inherit;
     }
+  }
+
+  &__unit {
+    font-size: .9em;
   }
 
   &__icon {
@@ -62,16 +67,27 @@
 
   @include layout.flex(row, nowrap, flex-start, center);
   gap: 1rem;
+
   &__flex-item {
     width: 15rem;
 
     @include layout.flex(row, nowrap, space-between, center);
-    
-    @media screen and (max-width: 389px) {
+
+    @media screen and (max-width: 340px) {
       width: 10rem;
     }
-    @include layout.largeScreen(){
+
+    @include layout.largeScreen() {
       width: 35rem;
     }
+  }
+
+  &__num {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+  &__unit {
+    line-height: 1.5em;
   }
 }

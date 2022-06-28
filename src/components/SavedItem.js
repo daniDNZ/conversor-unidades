@@ -1,13 +1,13 @@
 import { ReactComponent as Close } from '../svg/close.svg'
 
-const SavedItem = () => {
+const SavedItem = ({ inputValue, unit, result, resultUnit, id }) => {
   return (
     <>
       <div className='saved-item'>
         <span className='saved-item__content'>
-          100 miles → 160km
+          {`${inputValue} ${unit} → ${result} ${resultUnit}`}
         </span>
-        <button className='saved-item__close'>
+        <button className='saved-item__close' data-index={id}>
           <Close />
         </button>
       </div>

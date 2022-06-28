@@ -1,25 +1,26 @@
 /*
     RESET
 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
 
 // Colors
 $colors: (
-    '1'     : rgb(34, 0, 43),
-    '2'     : rgb(84, 84, 84),
-    '3'     : rgb(220, 220, 220),
-    '4'     : white
+    '1' : #2E0039,
+    '2' : #676767,
+    '3' : #E3E3E3,
+    '4' : white
 );
 
 // Fonts
 $fonts: (
-    'primary' : (Verdana, sans-serif)
+    'primary' : ('Poppins', sans-serif)
 );
 
 // Variables
-$color-primary          : map-get($colors, '1');
-$color-secondary        : map-get($colors, '2');
-$color-gray             : map-get($colors, '3');
-$color-light            : map-get($colors, '4');
+$color-primary : map-get($colors, '1');
+$color-secondary : map-get($colors, '2');
+$color-gray : map-get($colors, '3');
+$color-light : map-get($colors, '4');
 
 
 // Fonts
@@ -41,8 +42,8 @@ $darkMode: true; // Enable dark mode detection
 // High Contrast
 @media (prefers-contrast: high) {
     :root {
-    $color-font: black;
-    $color-background: white;
+        $color-font: black;
+        $color-background: white;
     }
 }
 
@@ -136,8 +137,8 @@ q:after {
 ::selection {
     background-color: $color-primary;
     color: $color-light;
-    
-    @include darkMode(){
+
+    @include darkMode() {
         background-color: $color-light;
         color: $color-primary;
 
@@ -202,11 +203,8 @@ body {
     /* optional */
     -moz-osx-font-smoothing: grayscale;
 
-    @include darkMode(){
+    @include darkMode() {
         color: $color-light;
         background-color: $color-primary;
     }
 }
-
-
-

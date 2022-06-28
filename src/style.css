@@ -1,6 +1,7 @@
 /*
     RESET
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap");
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none;
@@ -76,13 +77,13 @@ q:after {
 }
 
 ::selection {
-  background-color: rgb(34, 0, 43);
+  background-color: #2E0039;
   color: white;
 }
 @media (prefers-color-scheme: dark) {
   ::selection {
     background-color: white;
-    color: rgb(34, 0, 43);
+    color: #2E0039;
   }
 }
 
@@ -123,8 +124,8 @@ svg {
 body {
   min-height: 100vh;
   font-size: 1rem;
-  font-family: Verdana, sans-serif;
-  color: rgb(34, 0, 43);
+  font-family: "Poppins", sans-serif;
+  color: #2E0039;
   background-color: white;
   /* optional */
   line-height: 1.4em;
@@ -140,7 +141,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     color: white;
-    background-color: rgb(34, 0, 43);
+    background-color: #2E0039;
   }
 }
 
@@ -154,12 +155,12 @@ body {
 
 .header {
   width: 100%;
-  box-shadow: 0 0 3px 2px rgb(220, 220, 220);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .header__container {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -173,8 +174,8 @@ body {
   width: 1.2rem;
 }
 .header__a {
-  font-size: 1.2em;
-  font-weight: bolder;
+  font-size: 1.3em;
+  font-weight: 900;
 }
 
 .main {
@@ -185,10 +186,10 @@ body {
 
 .footer {
   width: 100%;
-  background-color: rgb(34, 0, 43);
+  background-color: #2E0039;
   color: white;
   font-size: 0.8em;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-top: auto;
   display: flex;
   flex-flow: row nowrap;
@@ -198,11 +199,11 @@ body {
 }
 
 .card {
-  background-color: rgb(34, 0, 43);
-  border-radius: 20px;
+  background-color: #2E0039;
+  border-radius: 21px;
   color: white;
-  box-shadow: 0 0 5px 4px rgb(220, 220, 220);
-  padding: 1.4rem;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2);
+  padding: 1.2rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -215,8 +216,8 @@ body {
   }
 }
 .card__title {
-  font-size: 1.2em;
-  font-weight: 700;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 .card__main {
   display: flex;
@@ -243,17 +244,21 @@ body {
 }
 .card__input {
   width: 15rem;
+  font-size: 0.9rem;
   border-bottom: 2px solid;
 }
-@media screen and (max-width: 389px) {
+@media screen and (max-width: 340px) {
   .card__input {
     width: 10rem;
   }
 }
 .card__input--num {
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: end;
   line-height: inherit;
+}
+.card__unit {
+  font-size: 0.9em;
 }
 .card__icon {
   width: 1rem;
@@ -275,7 +280,7 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-@media screen and (max-width: 389px) {
+@media screen and (max-width: 340px) {
   .result__flex-item {
     width: 10rem;
   }
@@ -285,13 +290,20 @@ body {
     width: 35rem;
   }
 }
+.result__num {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.result__unit {
+  line-height: 1.5em;
+}
 
 .saved {
   margin-top: 2rem;
 }
 .saved__title {
   font-weight: 700;
-  color: rgb(84, 84, 84);
+  color: #676767;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 720px) {
@@ -303,16 +315,19 @@ body {
 }
 
 .saved-item {
-  background-color: rgb(220, 220, 220);
+  background-color: #E3E3E3;
   border-radius: 10px;
-  box-shadow: 0 0 2px 2px rgb(220, 220, 220);
-  color: rgb(84, 84, 84);
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  color: #676767;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
   margin: 0.8rem 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+}
+.saved-item__content {
+  font-size: 0.9rem;
 }
 .saved-item__close {
   width: 1em;

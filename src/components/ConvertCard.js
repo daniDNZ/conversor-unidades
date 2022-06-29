@@ -75,6 +75,14 @@ const ConvertCard = ({ favList, setFavList }) => {
     calcUnit()
   }
 
+  // Clean form
+  const cleanForm = () => {
+    const inputDOM = document.querySelector('#userInput')
+    inputDOM.value = ''
+    inputValue = 0
+    calcUnit()
+  }
+
   // Fav button onClick event
   const handleFav = e => {
     const oldList = getFavList()
@@ -82,8 +90,12 @@ const ConvertCard = ({ favList, setFavList }) => {
 
     // Limit of favs
     if (oldList.length < 8) {
+      console.log(result, inputValue)
       // Add the new fav
       const newList = [...oldList, newItem]
+
+      // Clean form and set values to 0
+      cleanForm()
 
       // Save variables
       setVarState({ unit, resultUnit, inputValue, result })
@@ -94,6 +106,9 @@ const ConvertCard = ({ favList, setFavList }) => {
       // Store the list
       window.localStorage.setItem('favList', JSON.stringify(newList))
     } else {
+      // Save variables
+      setVarState({ unit, resultUnit, inputValue, result })
+
       // Display the alert of 'max 8 favs'
       const cardAlertDOM = document.querySelector('.card__alert')
       cardAlertDOM.classList.add('card__alert--visible')

@@ -7,7 +7,7 @@ const Saved = ({ favList, setFavList }) => {
     // Get index stored in dataset
     const index = e.target.dataset.index
     // Get List
-    const list = JSON.parse(window.localStorage.getItem('favList'))
+    const list = [...favList]
     // Remove the item from the array
     list.splice(index, 1)
     // Store list

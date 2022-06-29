@@ -15,39 +15,6 @@ const ConvertCard = ({ favList, setFavList }) => {
   // Calculate result
   const calcUnit = () => {
     const resultDOM = document.querySelector('#resultNum')
-
-    switch (unit) {
-      case 'km':
-        result = inputValue * 0.62137
-        break
-      case 'miles':
-        result = inputValue / 0.62137
-        break
-      case 'm':
-        result = inputValue * 3.28
-        break
-      case 'feet':
-        result = inputValue / 3.28
-        break
-      case 'cm':
-        result = inputValue / 2.54
-        break
-      case 'inch':
-        result = inputValue * 2.54
-        break
-
-      default:
-        break
-    }
-
-    // Result rounded to 2
-    result = Math.round((result + Number.EPSILON) * 100) / 100
-    resultDOM.textContent = result
-  }
-
-  // Change card units
-  const changeUnits = () => {
-    console.log(inputValue)
     // Unit span
     const unitSpanDOM = document.querySelector('#selectedUnit')
 
@@ -57,40 +24,48 @@ const ConvertCard = ({ favList, setFavList }) => {
     // Set input unit
     unitSpanDOM.textContent = unit
 
-    // Set result unit
     switch (unit) {
       case 'km':
         resultUnit = 'miles'
+        result = inputValue * 0.62137
         break
       case 'miles':
         resultUnit = 'km'
+        result = inputValue / 0.62137
         break
       case 'm':
         resultUnit = 'feet'
+        result = inputValue * 3.28
         break
       case 'feet':
         resultUnit = 'm'
+        result = inputValue / 3.28
         break
       case 'cm':
         resultUnit = 'inch'
+        result = inputValue / 2.54
         break
       case 'inch':
         resultUnit = 'cm'
+        result = inputValue * 2.54
         break
+
       default:
         break
     }
+
     unitResultDOM.textContent = resultUnit
 
-    // Recalculate the result
-    calcUnit()
+    // Result rounded to 2
+    result = Math.round((result + Number.EPSILON) * 100) / 100
+    resultDOM.textContent = result
   }
 
   // Input onChange event
   const handleSelect = e => {
     // Unit selected
     unit = e.target.value
-    changeUnits()
+    calcUnit()
   }
 
   // Input onChange event
@@ -118,6 +93,15 @@ const ConvertCard = ({ favList, setFavList }) => {
 
       // Store the list
       window.localStorage.setItem('favList', JSON.stringify(newList))
+    } else {
+      // Display the alert of 'max 8 favs'
+      const cardAlertDOM = document.querySelector('.card__alert')
+      cardAlertDOM.classList.add('card__alert--visible')
+
+      // Hide the alert after 2s
+      setTimeout(function () {
+        cardAlertDOM.classList.remove('card__alert--visible')
+      }, 2000)
     }
   }
 
@@ -149,6 +133,7 @@ const ConvertCard = ({ favList, setFavList }) => {
             <button className='card__icon' onClick={handleFav}>
               <Fav />
             </button>
+            <span className='card__alert'>Máx. 8 favoritos</span>
             <span id='resultNum' className='result__num'>0.0</span>
           </div>
           <span id='resultUnit' className='result__unit'>miles</span>
